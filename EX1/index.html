@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<title>Mapa</title>
+<body>
+<div id=”Map”> </div>
+<p id="mapa">Clique no botão para receber sua localização em Latitude e Longitude:</p>
+<button onclick="getLocation()">Clique Aqui</button>
+<script>
+var x=document.getElementById("mapa");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="O seu navegador não suporta Geolocalização.";}
+  }
+function showPosition(position)
+  {
+  x.innerHTML="Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude; 
+  }
+</script>
+</body>
+</html>
